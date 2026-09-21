@@ -1,0 +1,58 @@
+{
+  "name": "elite-foods-manager",
+  "version": "9.0.0",
+  "description": "Elite Foods Manager - Complete Restaurant Management System for Pakistan",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win nsis --x64",
+    "build-portable": "electron-builder --win portable --x64"
+  },
+  "author": "Elite Foods",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^28.3.3",
+    "electron-builder": "^24.9.1"
+  },
+  "build": {
+    "appId": "com.elitefoods.manager",
+    "productName": "Elite Foods Manager",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "assets/**/*"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "icon.ico",
+      "signAndEditExecutable": false,
+      "forceCodeSigning": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "icon.ico",
+      "uninstallerIcon": "icon.ico",
+      "installerHeaderIcon": "icon.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Elite Foods Manager",
+      "deleteAppDataOnUninstall": false,
+      "runAfterFinish": true,
+      "artifactName": "EliteFoods-Manager-v9-Setup.exe",
+      "license": "license.txt"
+    }
+  }
+}
